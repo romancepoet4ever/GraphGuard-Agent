@@ -1,0 +1,34 @@
+# ============================================================
+# Git 换行与字节处理规则
+#
+# 本仓库启用了 core.autocrlf=true：文本文件在 Git 中存 LF，
+# 在 Windows 工作区检出为 CRLF。
+#
+# 许可证与归属声明必须字节稳定（用于 SHA-256 校验），
+# 因此显式禁用换行转换（-text = 按原样存储、按原样检出）。
+# ============================================================
+
+# Apache-2.0 许可证。
+#
+# 官方原文基准：
+#   11358 字节 / 202 行 / LF
+#   SHA-256 = cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+#
+# 本项目在 APPENDIX 段落填入了版权人，因此与官方原文存在且仅存在一处差异：
+#   -   1 行：   Copyright [yyyy] [name of copyright owner]
+#   +   3 行：   Copyright 2026 黄俊杰 / 裴志轩 / 白宸旺
+#
+# 当前文件基准：
+#   11396 字节 / 204 行 / LF
+#   SHA-256 = 5d20beba59a5f9e4994550fc8919ed980e8e44b12c7944c7d6c60fef56e7e723
+#
+# 若换行被转换成 CRLF，字节数与上述哈希都会失配。
+# 校验方式见 docs/ 或提交说明：字节数 + SHA-256 + 与官方原文的 diff。
+LICENSE      -text
+LICENSE.txt  -text
+
+# NOTICE 归属声明文件，同样要求字节稳定。
+NOTICE       -text
+
+# .gitattributes 自身保持 LF，避免 Windows 检出时被改写
+.gitattributes  text eol=lf

@@ -1,0 +1,54 @@
+{
+  "gates": [
+    {
+      "evidence": [],
+      "name": "label_leakage",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cross_split_overlap": {
+          "external_content_hash": [],
+          "family": [],
+          "normalized_text_hash": [],
+          "topology_signature": []
+        },
+        "duplicate_cases": [],
+        "passed": true,
+        "unique_cases": 300
+      },
+      "name": "split_isolation",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "cases": 300,
+        "gold": 300
+      },
+      "name": "observable_gold_join",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "test": 240,
+        "validation": 60
+      },
+      "name": "frozen_test_scale",
+      "passed": true
+    },
+    {
+      "evidence": "src.detection.government_risk_engine.GovernmentRiskEngine",
+      "name": "real_engine_identity",
+      "passed": true
+    },
+    {
+      "evidence": {
+        "test_set_frozen": true,
+        "threshold_selected_on": "validation"
+      },
+      "name": "validation_only_threshold",
+      "passed": true
+    }
+  ],
+  "valid_for_report": true
+}

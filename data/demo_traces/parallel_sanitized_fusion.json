@@ -1,0 +1,80 @@
+{
+  "trace_id": "trace_parallel_sanitized_fusion_001",
+  "session_id": "demo_parallel_sanitized_fusion_01",
+  "round_idx": 9,
+  "scenario": "parallel_sanitized_fusion",
+  "created_at": "2026-08-04T01:12:00+09:00",
+  "metadata": {
+    "source": "offline_demo",
+    "case_title": "三资料库脱敏汇合",
+    "description": "三路资料并行返回，个人信息支路先脱敏，再与公开资料汇合。"
+  },
+  "nodes": [
+    {
+      "id": "sanitize_user_1", "label": "综合查询", "node_type": "user_input", "agent": "trainee",
+      "raw_content": "请综合公开信息、政策依据和人员统计形成摘要。", "display_content": "查询三类资料。",
+      "trust_level": "untrusted", "sensitivity": "public", "visibility": "user_visible", "stage": "consolidate",
+      "security_tags": [], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "sanitize_strategy_1", "label": "并行查询与脱敏策略", "node_type": "strategy_decision", "agent": "system", "lane": 1,
+      "raw_content": "三库并行查询，人员库结果必须先脱敏。", "display_content": "三路并行，敏感支路强制脱敏。",
+      "trust_level": "trusted", "sensitivity": "internal", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["decision_node"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "public_database_3", "label": "公开信息库", "node_type": "knowledge_retrieval", "agent": "system", "lane": 0,
+      "raw_content": "返回公开时间线。", "display_content": "公开时间线。", "trust_level": "trusted",
+      "sensitivity": "public", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["database_branch"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "policy_database_3", "label": "政策依据库", "node_type": "knowledge_retrieval", "agent": "system", "lane": 1,
+      "raw_content": "返回适用政策条款。", "display_content": "适用政策条款。", "trust_level": "trusted",
+      "sensitivity": "public", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["database_branch"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "person_database_3", "label": "人员信息库", "node_type": "tool_result", "agent": "tool", "lane": 2,
+      "raw_content": "张某，手机号13812345678，参与记录2次。", "display_content": "人员原始记录含手机号。",
+      "trust_level": "trusted", "sensitivity": "sensitive", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["database_branch", "personal_information"], "is_source": true, "is_sink": false
+    },
+    {
+      "id": "person_sanitizer_3", "label": "个人信息脱敏", "node_type": "sanitizer", "agent": "system", "lane": 2,
+      "raw_content": "手机号已脱敏，仅保留参与次数统计。", "display_content": "仅保留匿名统计。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["sanitized"], "is_source": false, "is_sink": false, "metadata": {"sanitized": true}
+    },
+    {
+      "id": "sanitize_fusion_3", "label": "脱敏后三路汇合", "node_type": "context_fusion", "agent": "system", "lane": 1,
+      "raw_content": "合并公开信息、政策依据和匿名统计。", "display_content": "三路安全上下文汇合。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": ["join_node"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "sanitize_generation_3", "label": "安全摘要生成", "node_type": "agent_generation", "agent": "system", "lane": 1,
+      "raw_content": "基于脱敏后的汇合上下文生成摘要。", "display_content": "生成脱敏摘要。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "internal_only", "stage": "consolidate",
+      "security_tags": [], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "sanitize_sink_3", "label": "用户可见安全摘要", "node_type": "user_visible_sink", "agent": "output", "lane": 1,
+      "raw_content": "输出公开事实、政策依据和匿名参与次数统计。", "display_content": "不含个人身份信息的综合摘要。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "user_visible", "stage": "consolidate",
+      "security_tags": ["user_visible_sink"], "is_source": false, "is_sink": true
+    }
+  ],
+  "edges": [
+    {"source": "sanitize_user_1", "target": "sanitize_strategy_1", "edge_type": "influences", "taint": ""},
+    {"source": "sanitize_strategy_1", "target": "public_database_3", "edge_type": "parallel_query", "taint": ""},
+    {"source": "sanitize_strategy_1", "target": "policy_database_3", "edge_type": "parallel_query", "taint": ""},
+    {"source": "sanitize_strategy_1", "target": "person_database_3", "edge_type": "parallel_query", "taint": ""},
+    {"source": "public_database_3", "target": "sanitize_fusion_3", "edge_type": "context", "taint": ""},
+    {"source": "policy_database_3", "target": "sanitize_fusion_3", "edge_type": "context", "taint": ""},
+    {"source": "person_database_3", "target": "person_sanitizer_3", "edge_type": "sensitive_data", "taint": "personal_information"},
+    {"source": "person_sanitizer_3", "target": "sanitize_fusion_3", "edge_type": "cleaned_flow", "taint": "sanitized"},
+    {"source": "sanitize_fusion_3", "target": "sanitize_generation_3", "edge_type": "context", "taint": ""},
+    {"source": "sanitize_generation_3", "target": "sanitize_sink_3", "edge_type": "generates", "taint": ""}
+  ]
+}

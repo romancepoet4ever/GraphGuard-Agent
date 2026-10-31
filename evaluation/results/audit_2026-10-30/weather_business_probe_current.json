@@ -1,0 +1,122 @@
+{
+  "schema_version": "weather-graphguard-v3-probe/1",
+  "status": "PASS",
+  "python_executable": "<PYTHON>",
+  "modes_requested": [
+    "observe",
+    "enforce",
+    "offline"
+  ],
+  "provider": "deterministic_scripted_test_double",
+  "production_database_used": false,
+  "cases": [
+    {
+      "case_id": "business_normal_chat",
+      "category": "business",
+      "node_id": "services/api/tests/test_agent_no_tool_chat.py::test_no_tool_chat_creates_agent_turn_but_no_run",
+      "status": "PASS",
+      "duration_s": 38.543,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "business_observation_statistics",
+      "category": "business",
+      "node_id": "services/api/tests/test_conversation_scene_v2.py::test_v2_query_runs_with_table_and_no_document",
+      "status": "PASS",
+      "duration_s": 24.402,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "business_template_list_select",
+      "category": "business",
+      "node_id": "services/api/tests/test_document_template.py::test_template_api_lists_registry_and_freezes_conversation_context_per_run",
+      "status": "PASS",
+      "duration_s": 3.504,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "business_document_crud",
+      "category": "business",
+      "node_id": "services/api/tests/test_document_api.py::test_document_api_creates_edits_reorders_and_detects_stale_revision",
+      "status": "PASS",
+      "duration_s": 3.27,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "business_document_pdf_provenance",
+      "category": "business",
+      "node_id": "services/api/tests/test_document_pdf.py::test_scene_pdf_provenance_names_frozen_contract_and_output_artifacts",
+      "status": "PASS",
+      "duration_s": 4.015,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "business_quick_preset",
+      "category": "business",
+      "node_id": "services/api/tests/test_conversation_scene_v2.py::test_all_time_presets_and_calendar_window",
+      "status": "PASS",
+      "duration_s": 0.004,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "lifecycle_deferred_resume",
+      "category": "lifecycle",
+      "node_id": "services/api/tests/test_agent_deferred_resume.py::test_terminal_success_resumes_same_turn_exactly_once",
+      "status": "PASS",
+      "duration_s": 3.892,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "lifecycle_cancellation_terminal",
+      "category": "lifecycle",
+      "node_id": "services/api/tests/test_deferred_run_cancellation.py::test_c1_pre_start_cancel_executes_zero_business_nodes",
+      "status": "PASS",
+      "duration_s": 0.151,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "security_observe_enforce_policy",
+      "category": "security",
+      "node_id": "services/api/tests/test_graphguard_integration.py::test_observe_and_enforce_use_the_same_weather_policy",
+      "status": "PASS",
+      "duration_s": 0.152,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "security_raw_safe_provenance",
+      "category": "security",
+      "node_id": "services/api/tests/test_graphguard_integration.py::test_enforce_sanitizes_only_the_model_facing_tool_result",
+      "status": "PASS",
+      "duration_s": 0.018,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    },
+    {
+      "case_id": "security_gateway_precedence",
+      "category": "security",
+      "node_id": "services/api/tests/test_graphguard_integration.py::test_business_gateway_denial_precedes_graphguard_guard",
+      "status": "PASS",
+      "duration_s": 0.153,
+      "evidence": "",
+      "source": "current_real_weather_service_test"
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "stdout_tail": "...........                                                              [100%]\n11 passed in 97.99s (0:01:37)\n",
+  "stderr_tail": ""
+}

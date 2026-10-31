@@ -1,0 +1,32 @@
+# CODEOWNERS
+#
+# 作用：PR 修改下列路径时，GitHub 会自动请求对应负责人审查。
+# 若在分支保护中启用 "Require review from Code Owners"，缺少 owner 批准则无法合并。
+#
+# 规则：最后匹配的行生效，因此顺序为先宽泛、后具体。
+#
+# 角色分工见 GOVERNANCE.md：
+#   Maintainer / Reviewer              黄俊杰 @Qtmenxia
+#   Reviewer                           裴志轩 @xuan3689
+#   Release Manager / Security Contact 白宸旺 @romancepoet4ever
+
+# 默认：所有变更由 Maintainer 负责
+*                          @Qtmenxia
+
+# 安全关键代码：检测与判定逻辑（两位 Reviewer 共同负责）
+/src/detection/            @Qtmenxia @xuan3689
+/src/policy/               @Qtmenxia @xuan3689
+/src/adapters/             @Qtmenxia @xuan3689
+/config/policy_packs/      @Qtmenxia @xuan3689
+
+# 接入面与运行时防护
+/sdk/python/graphguard/    @Qtmenxia @xuan3689
+/api/                      @Qtmenxia @xuan3689
+
+# 工程与政策文件
+/.github/workflows/        @Qtmenxia @romancepoet4ever
+/SECURITY.md               @romancepoet4ever
+/CODE_OF_CONDUCT.md        @romancepoet4ever
+/GOVERNANCE.md             @Qtmenxia
+/SUPPORT.md                @Qtmenxia
+/LICENSE.txt               @Qtmenxia @romancepoet4ever

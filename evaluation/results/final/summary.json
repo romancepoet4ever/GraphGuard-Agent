@@ -1,0 +1,706 @@
+{
+  "evaluation_scope": "public_incremental_final",
+  "reuse": {
+    "reused_items": 9,
+    "new_or_rerun_items": 4,
+    "manifest": "evaluation\\results\\final\\reuse_manifest.json"
+  },
+  "previous_controlled_summary": {
+    "rule": {
+      "samples": 60,
+      "tp": 30,
+      "tn": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "rule_location_accuracy": 1.0,
+      "node_location_precision": 1.0,
+      "dataset": "local controlled text_rule test"
+    },
+    "taint": {
+      "samples": 80,
+      "source_detection_accuracy": 1.0,
+      "sink_detection_accuracy": 1.0,
+      "path_detection_rate": 1.0,
+      "path_false_positive_rate": 0.0,
+      "path_node_precision": 1.0,
+      "path_node_recall": 1.0,
+      "path_edge_precision": 1.0,
+      "path_edge_recall": 1.0,
+      "sanitizer_handling_accuracy": true,
+      "block_handling_accuracy": true,
+      "dataset": "local controlled taint_path test"
+    },
+    "anomaly": {
+      "samples": 80,
+      "validation_threshold": 0.07515625000000001,
+      "anomaly_trace_recall": 1.0,
+      "normal_trace_fpr": 0.0,
+      "f1": 1.0,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "anomaly_type_recall": 0.875,
+      "anomalous_node_precision": 0.6875,
+      "anomalous_node_recall": 0.6875,
+      "anomalous_edge_precision": 0.5625,
+      "anomalous_edge_recall": 0.5625,
+      "dataset": "local controlled structural_anomaly test"
+    },
+    "semantic": {
+      "mode": "remote_semantic_model",
+      "real_semantic_model_used": true,
+      "provider": "openrouter",
+      "model": "minimax/minimax-m2.1",
+      "validation_threshold": 0.425,
+      "samples": 160,
+      "tp": 80,
+      "tn": 80,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "difficult_negative_fpr": 0.0,
+      "dataset": "local controlled semantic test; public sources reported separately"
+    },
+    "fusion": {
+      "configuration": "FULL",
+      "risk_type_macro_f1": 1.0,
+      "risk_type_micro_f1": 1.0,
+      "attack_state_accuracy": 0.625,
+      "critical_risk_recall": 1.0,
+      "path_explanation_coverage": 1.0,
+      "false_critical_rate": 0.0,
+      "real_engine": "GovernmentRiskEngine"
+    },
+    "guard": {
+      "attack_cases": 30,
+      "asr_no_guard": 1.0,
+      "asr_observe": 1.0,
+      "asr_enforce": 0.3333333333333333,
+      "tool_misuse_block_rate": 1,
+      "sanitization_success_rate": 1,
+      "false_block_rate": 0.0,
+      "utility_retention": 1.0,
+      "guard_decision_accuracy": 0.6666666666666666,
+      "stream_guard_accuracy": 1.0,
+      "outcome_based": true
+    },
+    "performance": [
+      {
+        "metric": "guard_latency",
+        "nodes": "",
+        "concurrency": 1,
+        "iterations": 200,
+        "mean_ms": 0.0049415,
+        "p95_ms": 0.005,
+        "throughput_per_second": 202367.7021147425,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "trace_analysis",
+        "nodes": 10,
+        "concurrency": 1,
+        "iterations": 5,
+        "mean_ms": 0.051359995268285275,
+        "p95_ms": 0.10599999222904444,
+        "throughput_per_second": 19470.406778201137,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "trace_analysis",
+        "nodes": 100,
+        "concurrency": 1,
+        "iterations": 5,
+        "mean_ms": 0.35445999819785357,
+        "p95_ms": 0.3980000037699938,
+        "throughput_per_second": 2821.192814659489,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "trace_analysis",
+        "nodes": 500,
+        "concurrency": 1,
+        "iterations": 5,
+        "mean_ms": 2.443640003912151,
+        "p95_ms": 3.3792000031098723,
+        "throughput_per_second": 409.22558085440073,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "trace_analysis",
+        "nodes": 1000,
+        "concurrency": 1,
+        "iterations": 5,
+        "mean_ms": 5.495460028760135,
+        "p95_ms": 7.025300001259893,
+        "throughput_per_second": 181.9683874992384,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "concurrent_guard",
+        "nodes": "",
+        "concurrency": 1,
+        "iterations": 20,
+        "mean_ms": 0.1618599984794855,
+        "p95_ms": "",
+        "throughput_per_second": 6178.178730965095,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "concurrent_guard",
+        "nodes": "",
+        "concurrency": 10,
+        "iterations": 200,
+        "mean_ms": 0.04322849999880418,
+        "p95_ms": "",
+        "throughput_per_second": 23132.886869256687,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "concurrent_guard",
+        "nodes": "",
+        "concurrency": 50,
+        "iterations": 1000,
+        "mean_ms": 0.10231650003697723,
+        "p95_ms": "",
+        "throughput_per_second": 9773.594675722876,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "concurrent_guard",
+        "nodes": "",
+        "concurrency": 100,
+        "iterations": 2000,
+        "mean_ms": 0.03450629999861121,
+        "p95_ms": "",
+        "throughput_per_second": 28980.215208244506,
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      },
+      {
+        "metric": "observe_business_overhead",
+        "nodes": "",
+        "concurrency": 1,
+        "iterations": 3000,
+        "mean_ms": 0.06415746666666666,
+        "p95_ms": 0.1083,
+        "throughput_per_second": "",
+        "overhead_percent": 44.153350229779676,
+        "raw_overhead_percent": 44.153350229779676
+      },
+      {
+        "metric": "enforce_business_overhead",
+        "nodes": "",
+        "concurrency": 1,
+        "iterations": 3000,
+        "mean_ms": 0.06946196666666667,
+        "p95_ms": 0.1292,
+        "throughput_per_second": "",
+        "overhead_percent": 56.07186082600853,
+        "raw_overhead_percent": 56.07186082600853
+      },
+      {
+        "metric": "batch_api_latency",
+        "nodes": "",
+        "concurrency": 1,
+        "iterations": 20,
+        "mean_ms": 999.84079,
+        "p95_ms": 1144.2353,
+        "throughput_per_second": "",
+        "overhead_percent": "",
+        "raw_overhead_percent": ""
+      }
+    ]
+  },
+  "dataset": {
+    "public_text_cases": 2162,
+    "public_trace_cases": 470,
+    "public_gold_annotations": 2632
+  },
+  "public_dataset_summary": [
+    {
+      "source_dataset": "BIPIA",
+      "repo_commit": "NO_GIT_METADATA",
+      "text_attack_count": "200",
+      "text_negative_count": "200",
+      "trace_attack_count": "50",
+      "trace_negative_count": "50",
+      "derived_negative_count": "200",
+      "used_for_text_metrics": "True",
+      "used_for_trace_metrics": "True",
+      "notes": "recursive public repository adaptation"
+    },
+    {
+      "source_dataset": "InjecAgent",
+      "repo_commit": "NO_GIT_METADATA",
+      "text_attack_count": "300",
+      "text_negative_count": "200",
+      "trace_attack_count": "100",
+      "trace_negative_count": "50",
+      "derived_negative_count": "200",
+      "used_for_text_metrics": "True",
+      "used_for_trace_metrics": "True",
+      "notes": "recursive public repository adaptation"
+    },
+    {
+      "source_dataset": "PoisonedRAG",
+      "repo_commit": "NO_GIT_METADATA",
+      "text_attack_count": "100",
+      "text_negative_count": "100",
+      "trace_attack_count": "50",
+      "trace_negative_count": "50",
+      "derived_negative_count": "100",
+      "used_for_text_metrics": "True",
+      "used_for_trace_metrics": "True",
+      "notes": "recursive public repository adaptation"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "repo_commit": "NO_GIT_METADATA",
+      "text_attack_count": "200",
+      "text_negative_count": "200",
+      "trace_attack_count": "80",
+      "trace_negative_count": "40",
+      "derived_negative_count": "0",
+      "used_for_text_metrics": "True",
+      "used_for_trace_metrics": "True",
+      "notes": "recursive public repository adaptation"
+    },
+    {
+      "source_dataset": "deepset",
+      "repo_commit": "NO_GIT_METADATA",
+      "text_attack_count": "263",
+      "text_negative_count": "399",
+      "trace_attack_count": "0",
+      "trace_negative_count": "0",
+      "derived_negative_count": "0",
+      "used_for_text_metrics": "True",
+      "used_for_trace_metrics": "False",
+      "notes": "deepset text-level only"
+    }
+  ],
+  "public_text_metrics": [
+    {
+      "source_dataset": "BIPIA",
+      "attack_count": 200,
+      "negative_count": 200,
+      "tp": 200,
+      "tn": 176,
+      "fp": 24,
+      "fn": 0,
+      "precision": 0.8928571428571429,
+      "recall": 1.0,
+      "f1": 0.9433962264150945,
+      "fpr": 0.12,
+      "notes": "contains public or derived negatives"
+    },
+    {
+      "source_dataset": "InjecAgent",
+      "attack_count": 300,
+      "negative_count": 200,
+      "tp": 85,
+      "tn": 200,
+      "fp": 0,
+      "fn": 215,
+      "precision": 1.0,
+      "recall": 0.2833333333333333,
+      "f1": 0.4415584415584416,
+      "fpr": 0.0,
+      "notes": "contains public or derived negatives"
+    },
+    {
+      "source_dataset": "PoisonedRAG",
+      "attack_count": 100,
+      "negative_count": 100,
+      "tp": 100,
+      "tn": 100,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "notes": "contains public or derived negatives"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "attack_count": 200,
+      "negative_count": 200,
+      "tp": 19,
+      "tn": 197,
+      "fp": 3,
+      "fn": 181,
+      "precision": 0.8636363636363636,
+      "recall": 0.095,
+      "f1": 0.17117117117117117,
+      "fpr": 0.015,
+      "notes": "contains public or derived negatives"
+    },
+    {
+      "source_dataset": "deepset",
+      "attack_count": 263,
+      "negative_count": 399,
+      "tp": 50,
+      "tn": 399,
+      "fp": 0,
+      "fn": 213,
+      "precision": 1.0,
+      "recall": 0.19011406844106463,
+      "f1": 0.3194888178913738,
+      "fpr": 0.0,
+      "notes": "contains public or derived negatives"
+    }
+  ],
+  "public_trace_metrics": [
+    {
+      "source_dataset": "BIPIA",
+      "trace_count": 50,
+      "risk_type": "indirect_prompt_injection",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "InjecAgent",
+      "trace_count": 50,
+      "risk_type": "sensitive_data_leakage",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "InjecAgent",
+      "trace_count": 50,
+      "risk_type": "tool_misuse",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "PoisonedRAG",
+      "trace_count": 50,
+      "risk_type": "knowledge_poisoning",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "trace_count": 20,
+      "risk_type": "content_injection",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "trace_count": 20,
+      "risk_type": "denial_of_service",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "trace_count": 20,
+      "risk_type": "knowledge_conflict",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    },
+    {
+      "source_dataset": "SafeRAG",
+      "trace_count": 20,
+      "risk_type": "retrieval_noise",
+      "path_detection_rate": 1.0,
+      "risk_type_f1": 1.0,
+      "attack_state_accuracy": 1.0,
+      "notes": "SecurityTrace reachability over public adapted traces"
+    }
+  ],
+  "runtime_guard": {
+    "metrics": {
+      "attack_cases": 220,
+      "normal_cases": 220,
+      "total_cases": 440,
+      "ASR_disabled": 1.0,
+      "ASR_observe": 1.0,
+      "ASR_enforce": 0.09090909090909091,
+      "ASR_reduction": 0.9090909090909091,
+      "tool_misuse_block_rate": 1.0,
+      "sensitive_leakage_block_rate": 1.0,
+      "pii_redaction_success_rate": 1.0,
+      "memory_contamination_block_rate": 1.0,
+      "report_pollution_block_rate": 1.0,
+      "prompt_injection_block_rate": 0.0,
+      "false_block_rate": 0.0,
+      "utility_retention": 1.0,
+      "normal_pass_rate": 1.0,
+      "normal_pass_rate_disabled": 1.0,
+      "normal_pass_rate_observe": 1.0,
+      "normal_pass_rate_enforce": 1.0,
+      "outcome_based": true
+    },
+    "mode_comparison": [
+      {
+        "mode": "disabled",
+        "attack_cases": 220,
+        "normal_cases": 220,
+        "attack_success_rate": 1.0,
+        "normal_pass_rate": 1.0,
+        "blocked_rate": 0.0,
+        "sanitized_rate": 0.0
+      },
+      {
+        "mode": "observe",
+        "attack_cases": 220,
+        "normal_cases": 220,
+        "attack_success_rate": 1.0,
+        "normal_pass_rate": 1.0,
+        "blocked_rate": 0.0,
+        "sanitized_rate": 0.0
+      },
+      {
+        "mode": "enforce",
+        "attack_cases": 220,
+        "normal_cases": 220,
+        "attack_success_rate": 0.09090909090909091,
+        "normal_pass_rate": 1.0,
+        "blocked_rate": 0.2727272727272727,
+        "sanitized_rate": 0.41818181818181815
+      }
+    ],
+    "case_breakdown": [
+      {
+        "category": "combined_attack",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "knowledge_poisoning",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "memory_contamination",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "pii_leakage",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "prompt_injection",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 1.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "referee_contamination",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "report_pollution",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "sensitive_data_leakage",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "streaming_tts_leakage",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "system_prompt_leakage",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "tool_misuse",
+        "category_kind": "attack",
+        "case_count": 20,
+        "asr_disabled": 1.0,
+        "asr_observe": 1.0,
+        "asr_enforce": 0.0,
+        "pass_rate_disabled": "",
+        "pass_rate_observe": "",
+        "pass_rate_enforce": ""
+      },
+      {
+        "category": "authorized_high_risk_tool",
+        "category_kind": "normal",
+        "case_count": 28,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "legal_evidence_summary",
+        "category_kind": "normal",
+        "case_count": 28,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "normal_memory_read",
+        "category_kind": "normal",
+        "case_count": 27,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "normal_rag_qa",
+        "category_kind": "normal",
+        "case_count": 27,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "normal_refusal",
+        "category_kind": "normal",
+        "case_count": 27,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "normal_report_generation",
+        "category_kind": "normal",
+        "case_count": 27,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "policy_qa",
+        "category_kind": "normal",
+        "case_count": 28,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      },
+      {
+        "category": "redacted_output",
+        "category_kind": "normal",
+        "case_count": 28,
+        "asr_disabled": "",
+        "asr_observe": "",
+        "asr_enforce": "",
+        "pass_rate_disabled": 1.0,
+        "pass_rate_observe": 1.0,
+        "pass_rate_enforce": 1.0
+      }
+    ],
+    "primary_result_scope": "expanded outcome-based guard set"
+  }
+}

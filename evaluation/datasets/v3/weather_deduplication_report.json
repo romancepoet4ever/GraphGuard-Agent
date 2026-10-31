@@ -1,0 +1,11 @@
+{
+  "unique_cases": 300,
+  "duplicate_cases": [],
+  "cross_split_overlap": {
+    "normalized_text_hash": [],
+    "external_content_hash": [],
+    "topology_signature": [],
+    "family": []
+  },
+  "passed": true
+}

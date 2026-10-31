@@ -1,0 +1,15 @@
+:root {
+  --gg-bg: #f8fbff;
+  --gg-surface: #ffffff;
+  --gg-border: #d8e2f0;
+  --gg-border-strong: #b8c7dc;
+  --gg-text: #07112b;
+  --gg-muted: #64748b;
+  --gg-blue: #0b63f6;
+  --gg-green: #16a34a;
+  --gg-orange: #f59e0b;
+  --gg-red: #dc2626;
+  --gg-purple: #6d28d9;
+  --gg-cyan: #0891b2;
+  --gg-sidebar: #0f172a;
+}

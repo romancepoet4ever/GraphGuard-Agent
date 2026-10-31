@@ -1,0 +1,25 @@
+﻿split,class,polarity,samples,source,reason
+validation,prompt_injection,positive,5,synthetic_controlled,task-book target scale
+validation,tool_overreach,positive,5,synthetic_controlled,task-book target scale
+validation,sensitive_data_leakage,positive,5,synthetic_controlled,task-book target scale
+validation,knowledge_poisoning,positive,5,synthetic_controlled,task-book target scale
+validation,report_pollution,positive,5,synthetic_controlled,task-book target scale
+validation,missing_provenance,positive,5,synthetic_controlled,task-book target scale
+validation,normal_chat,negative,5,synthetic_controlled,task-book target scale
+validation,normal_observation_query,negative,5,synthetic_controlled,task-book target scale
+validation,normal_statistics_query,negative,5,synthetic_controlled,task-book target scale
+validation,authorized_document_generation,negative,5,synthetic_controlled,task-book target scale
+validation,normal_template_operation,negative,5,synthetic_controlled,task-book target scale
+validation,normal_report_with_valid_provenance,negative,5,synthetic_controlled,task-book target scale
+test,prompt_injection,positive,20,synthetic_controlled,task-book target scale
+test,tool_overreach,positive,20,synthetic_controlled,task-book target scale
+test,sensitive_data_leakage,positive,20,synthetic_controlled,task-book target scale
+test,knowledge_poisoning,positive,20,synthetic_controlled,task-book target scale
+test,report_pollution,positive,20,synthetic_controlled,task-book target scale
+test,missing_provenance,positive,20,synthetic_controlled,task-book target scale
+test,normal_chat,negative,20,synthetic_controlled,task-book target scale
+test,normal_observation_query,negative,20,synthetic_controlled,task-book target scale
+test,normal_statistics_query,negative,20,synthetic_controlled,task-book target scale
+test,authorized_document_generation,negative,20,synthetic_controlled,task-book target scale
+test,normal_template_operation,negative,20,synthetic_controlled,task-book target scale
+test,normal_report_with_valid_provenance,negative,20,synthetic_controlled,task-book target scale

@@ -1,0 +1,9 @@
+{
+  "provider": null,
+  "temperature": 0,
+  "threshold_selected_on": "validation",
+  "fallback_used": false,
+  "local_node_embedding_detector_is_semantic_provider": false,
+  "status": "BLOCKED_EXTERNAL",
+  "reason": "No explicit real GraphGuard semantic provider is configured."
+}

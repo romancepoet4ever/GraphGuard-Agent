@@ -1,0 +1,2 @@
+﻿method,status,executed_samples,reason
+semantic,BLOCKED_EXTERNAL,0,No explicit real GraphGuard semantic provider is configured.

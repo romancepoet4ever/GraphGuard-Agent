@@ -1,0 +1,27 @@
+﻿mode,status,exit_code,stdout_tail,stderr_tail
+observe,PASS,0,"ty.spec.ts:98:7 › GraphGuard weather security experience › observe alerts and enforce blocks the same prompt-injection fixture
+[3/7] apps\web\tests\graphguard-security.spec.ts:135:7 › GraphGuard weather security experience › enforce blocks a tainted high-impact tool after ToolGateway validation
+[4/7] apps\web\tests\graphguard-security.spec.ts:146:7 › GraphGuard weather security experience › observe alerts and enforce sanitizes a synthetic secret at the output boundary
+[5/7] apps\web\tests\graphguard-security.spec.ts:162:7 › GraphGuard weather security experience › keeps observation and explicit statistics tool selection unchanged
+[6/7] apps\web\tests\graphguard-security.spec.ts:186:7 › GraphGuard weather security experience › deferred run emits security SSE and keeps one trace across resume
+[7/7] apps\web\tests\graphguard-security.spec.ts:215:7 › GraphGuard weather security experience › cancelled deferred run closes the same GraphGuard trace as cancelled
+  1 skipped
+  6 passed (41.7s)
+",
+enforce,PASS,0,"guard-security.spec.ts:98:7 › GraphGuard weather security experience › observe alerts and enforce blocks the same prompt-injection fixture
+[3/7] apps\web\tests\graphguard-security.spec.ts:135:7 › GraphGuard weather security experience › enforce blocks a tainted high-impact tool after ToolGateway validation
+[4/7] apps\web\tests\graphguard-security.spec.ts:146:7 › GraphGuard weather security experience › observe alerts and enforce sanitizes a synthetic secret at the output boundary
+[5/7] apps\web\tests\graphguard-security.spec.ts:162:7 › GraphGuard weather security experience › keeps observation and explicit statistics tool selection unchanged
+[6/7] apps\web\tests\graphguard-security.spec.ts:186:7 › GraphGuard weather security experience › deferred run emits security SSE and keeps one trace across resume
+[7/7] apps\web\tests\graphguard-security.spec.ts:215:7 › GraphGuard weather security experience › cancelled deferred run closes the same GraphGuard trace as cancelled
+  7 passed (43.8s)
+",
+offline,PASS,0,"ty.spec.ts:98:7 › GraphGuard weather security experience › observe alerts and enforce blocks the same prompt-injection fixture
+[3/7] apps\web\tests\graphguard-security.spec.ts:135:7 › GraphGuard weather security experience › enforce blocks a tainted high-impact tool after ToolGateway validation
+[4/7] apps\web\tests\graphguard-security.spec.ts:146:7 › GraphGuard weather security experience › observe alerts and enforce sanitizes a synthetic secret at the output boundary
+[5/7] apps\web\tests\graphguard-security.spec.ts:162:7 › GraphGuard weather security experience › keeps observation and explicit statistics tool selection unchanged
+[6/7] apps\web\tests\graphguard-security.spec.ts:186:7 › GraphGuard weather security experience › deferred run emits security SSE and keeps one trace across resume
+[7/7] apps\web\tests\graphguard-security.spec.ts:215:7 › GraphGuard weather security experience › cancelled deferred run closes the same GraphGuard trace as cancelled
+  5 skipped
+  2 passed (12.4s)
+",

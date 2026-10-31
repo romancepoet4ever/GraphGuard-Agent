@@ -1,0 +1,60 @@
+{
+  "anomaly_threshold": 0.46,
+  "capture_modes": [
+    "controlled",
+    "business_service",
+    "browser_e2e"
+  ],
+  "dataset_hashes": {
+    "weather_cases.jsonl": "75283536bbdc236a19a3293733644ac298ec27e43845671d47a7dc5b56161def",
+    "weather_dataset_manifest.csv": "2e18190498b051f1fe0eb38ff3662f805da4b865ebe263d5426eac2ecf864638",
+    "weather_deduplication_report.json": "544092352d920f4c89f191b56d445597facaa3594f5e175f57af9d1b47cc9d79",
+    "weather_gold_annotations.jsonl": "23b9478a15de21bf9b15c2267ea1bafa5a0dde3286019c2dd5b85770cf7bc309",
+    "weather_guard_cases.jsonl": "988d7819d8c925452d0711bb101a941750837e1cd589238bdfe5d292798ac5c6",
+    "weather_guard_gold.jsonl": "e6cd932ec43979c82956cf2417fb2cf85c5b2a7b222ad4cacc39f02966c827b8",
+    "weather_observable_traces.jsonl": "0ac71aeb7feed93915a3235a192292cce8a1c5d46202fb318bc43a6dfc7b2b8d",
+    "weather_split_manifest.csv": "f43e7d14667e10067bfe78041dff020590750650b8c8bb157b7b45ea5f3e7941"
+  },
+  "evaluation_version": "v3",
+  "guard_modes": [
+    "disabled",
+    "observe",
+    "enforce"
+  ],
+  "policy_pack": "government_weather",
+  "policy_pack_sha256": "cbb706149bd2499abec6afcb1ea7650138b8f8dc60e0a7b531ab76f85319f197",
+  "repositories": {
+    "graphguard": {
+      "path": "<REPO>",
+      "status": "AVAILABLE"
+    },
+    "interrogation": {
+      "path": "<CONTRACT_REPO>",
+      "reason": "repository has no commit",
+      "status": "COMMITLESS"
+    },
+    "weather": {
+      "path": "<WEATHER_REPO>",
+      "status": "AVAILABLE"
+    }
+  },
+  "risk_engine_class": "src.detection.government_risk_engine.GovernmentRiskEngine",
+  "runtime": {
+    "node_version": "v24.15.0",
+    "packages": {
+      "matplotlib": "3.10.9",
+      "networkx": "3.6.1",
+      "pytest": "8.4.2",
+      "scikit-learn": "unavailable"
+    },
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python_executable": "<PYTHON>",
+    "python_version": "3.11.15"
+  },
+  "secret_environment_keys_present": [],
+  "seed": 20261012,
+  "semantic_status": "BLOCKED_EXTERNAL",
+  "test_set_frozen": true,
+  "threshold_selected_on": "validation",
+  "timezone": "Asia/Tokyo"
+}

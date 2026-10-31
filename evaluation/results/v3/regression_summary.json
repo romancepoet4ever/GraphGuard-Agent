@@ -1,0 +1,122 @@
+[
+  {
+    "name": "graphguard",
+    "status": "PASS",
+    "command": [
+      "<PYTHON>",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=<REPO>\\evaluation\\results\\v3\\.pytest-graphguard-v3",
+      "--junitxml=<REPO>\\evaluation\\results\\v3\\pytest_graphguard_v3.xml",
+      "tests"
+    ],
+    "cwd": "<REPO>",
+    "revision": "544bf9dadb0f3d99657e1ebf91392cc26760586c",
+    "exit_code": 0,
+    "elapsed_s": 83.946582,
+    "summary": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_s": 79.385
+    },
+    "xml_path": "<REPO>\\evaluation\\results\\v3\\pytest_graphguard_v3.xml",
+    "log_path": "<REPO>\\evaluation\\results\\v3\\pytest_graphguard_v3.log",
+    "reason": ""
+  },
+  {
+    "name": "evaluation_v3",
+    "status": "PASS",
+    "command": [
+      "<PYTHON>",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=<REPO>\\evaluation\\results\\v3\\.pytest-evaluation-v3",
+      "--junitxml=<REPO>\\evaluation\\results\\v3\\pytest_evaluation_v3.xml",
+      "evaluation/tests"
+    ],
+    "cwd": "<REPO>",
+    "revision": "544bf9dadb0f3d99657e1ebf91392cc26760586c",
+    "exit_code": 0,
+    "elapsed_s": 25.008771,
+    "summary": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_s": 21.532
+    },
+    "xml_path": "<REPO>\\evaluation\\results\\v3\\pytest_evaluation_v3.xml",
+    "log_path": "<REPO>\\evaluation\\results\\v3\\pytest_evaluation_v3.log",
+    "reason": ""
+  },
+  {
+    "name": "weather_v3",
+    "status": "PASS",
+    "command": [
+      "<PYTHON>",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=<WEATHER_REPO>\\.tmp\\pytest-weather-v3-regression",
+      "--junitxml=<REPO>\\evaluation\\results\\v3\\pytest_weather_v3.xml"
+    ],
+    "cwd": "<WEATHER_REPO>",
+    "revision": "93b58948f2ddf2ecdf452a63232b5e47de0a7fe0",
+    "exit_code": 0,
+    "elapsed_s": 604.094763,
+    "summary": {
+      "tests": 307,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_s": 594.444
+    },
+    "xml_path": "<REPO>\\evaluation\\results\\v3\\pytest_weather_v3.xml",
+    "log_path": "<REPO>\\evaluation\\results\\v3\\pytest_weather_v3.log",
+    "reason": ""
+  },
+  {
+    "name": "interrogation_contract",
+    "status": "PASS",
+    "command": [
+      "<PYTHON>",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=<REPO>\\evaluation\\results\\v3\\.pytest-interrogation-v3",
+      "--junitxml=<REPO>\\evaluation\\results\\v3\\pytest_interrogation_contract_v3.xml",
+      "tests/test_graphguard_import_contract.py",
+      "tests/test_graphguard_runtime_guard.py",
+      "tests/test_graphguard_integration.py",
+      "tests/test_graphguard_fail_open.py",
+      "tests/test_graphguard_stream_guard.py",
+      "tests/test_graphguard_tool_guard_e2e.py"
+    ],
+    "cwd": "<CONTRACT_REPO>\\backend",
+    "revision": "",
+    "exit_code": 0,
+    "elapsed_s": 31.952473,
+    "summary": {
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration_s": 28.264
+    },
+    "xml_path": "<REPO>\\evaluation\\results\\v3\\pytest_interrogation_contract_v3.xml",
+    "log_path": "<REPO>\\evaluation\\results\\v3\\pytest_interrogation_contract_v3.log",
+    "reason": ""
+  }
+]

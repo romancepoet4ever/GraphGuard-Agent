@@ -1,0 +1,73 @@
+{
+  "trace_id": "trace_parallel_three_databases_001",
+  "session_id": "demo_parallel_three_databases_01",
+  "round_idx": 7,
+  "scenario": "parallel_three_databases",
+  "created_at": "2026-08-04T01:10:00+09:00",
+  "metadata": {
+    "source": "offline_demo",
+    "case_title": "三资料库并行检索",
+    "description": "同一策略并行查询三个独立资料库，结果在上下文汇合节点合并。"
+  },
+  "nodes": [
+    {
+      "id": "parallel_user_1", "label": "查询请求", "node_type": "user_input", "agent": "trainee",
+      "raw_content": "请同时查看政策库、案件公开库和历史问答库后给出摘要。",
+      "display_content": "同时查询三个资料库。", "trust_level": "untrusted", "sensitivity": "public",
+      "visibility": "user_visible", "stage": "probe", "security_tags": [], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "parallel_strategy_1", "label": "并行检索策略", "node_type": "strategy_decision", "agent": "system", "lane": 1,
+      "raw_content": "把查询拆分为三个互不依赖的检索任务。", "display_content": "拆分三个并行检索任务。",
+      "trust_level": "trusted", "sensitivity": "internal", "visibility": "internal_only", "stage": "probe",
+      "security_tags": ["decision_node"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "policy_database_1", "label": "政策法规库", "node_type": "knowledge_retrieval", "agent": "system", "lane": 0,
+      "raw_content": "返回现行公开政策条款。", "display_content": "政策条款摘要。", "trust_level": "trusted",
+      "sensitivity": "public", "visibility": "internal_only", "stage": "probe",
+      "security_tags": ["database_branch"], "is_source": false, "is_sink": false, "metadata": {"database": "policy"}
+    },
+    {
+      "id": "case_database_1", "label": "案件公开库", "node_type": "evidence_retrieval", "agent": "system", "lane": 1,
+      "raw_content": "返回已公开案件时间线。", "display_content": "公开案件时间线。", "trust_level": "trusted",
+      "sensitivity": "public", "visibility": "internal_only", "stage": "probe",
+      "security_tags": ["database_branch"], "is_source": false, "is_sink": false, "metadata": {"database": "public_case"}
+    },
+    {
+      "id": "history_database_1", "label": "历史问答库", "node_type": "memory_read", "agent": "system", "lane": 2,
+      "raw_content": "返回已审核历史问答。", "display_content": "历史问答摘要。", "trust_level": "trusted",
+      "sensitivity": "public", "visibility": "internal_only", "stage": "probe",
+      "security_tags": ["database_branch"], "is_source": false, "is_sink": false, "metadata": {"database": "approved_history"}
+    },
+    {
+      "id": "parallel_fusion_1", "label": "三路结果汇合", "node_type": "context_fusion", "agent": "system", "lane": 1,
+      "raw_content": "合并三个资料库的检索结果并去重。", "display_content": "三路资料合并去重。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "internal_only", "stage": "probe",
+      "security_tags": ["join_node"], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "parallel_generation_1", "label": "综合摘要生成", "node_type": "agent_generation", "agent": "system", "lane": 1,
+      "raw_content": "基于三路公开资料生成综合摘要。", "display_content": "生成综合摘要。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "internal_only", "stage": "probe",
+      "security_tags": [], "is_source": false, "is_sink": false
+    },
+    {
+      "id": "parallel_sink_1", "label": "用户可见摘要", "node_type": "user_visible_sink", "agent": "output", "lane": 1,
+      "raw_content": "输出基于三个公开资料库的合规摘要。", "display_content": "三库综合公开摘要。",
+      "trust_level": "trusted", "sensitivity": "public", "visibility": "user_visible", "stage": "probe",
+      "security_tags": ["user_visible_sink"], "is_source": false, "is_sink": true
+    }
+  ],
+  "edges": [
+    {"source": "parallel_user_1", "target": "parallel_strategy_1", "edge_type": "influences", "taint": ""},
+    {"source": "parallel_strategy_1", "target": "policy_database_1", "edge_type": "parallel_query", "taint": ""},
+    {"source": "parallel_strategy_1", "target": "case_database_1", "edge_type": "parallel_query", "taint": ""},
+    {"source": "parallel_strategy_1", "target": "history_database_1", "edge_type": "parallel_query", "taint": ""},
+    {"source": "policy_database_1", "target": "parallel_fusion_1", "edge_type": "context", "taint": ""},
+    {"source": "case_database_1", "target": "parallel_fusion_1", "edge_type": "context", "taint": ""},
+    {"source": "history_database_1", "target": "parallel_fusion_1", "edge_type": "context", "taint": ""},
+    {"source": "parallel_fusion_1", "target": "parallel_generation_1", "edge_type": "context", "taint": ""},
+    {"source": "parallel_generation_1", "target": "parallel_sink_1", "edge_type": "generates", "taint": ""}
+  ]
+}

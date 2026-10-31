@@ -1,0 +1,11 @@
+levels:
+  public: {output_allowed: true}
+  internal: {output_allowed: conditional}
+  sensitive: {output_allowed: false, desensitize_required: true}
+  highly_sensitive: {output_allowed: false, desensitize_required: true}
+patterns:
+  - {id: pii.phone, regex: "1[3-9][0-9]{9}"}
+  - {id: pii.email, regex: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"}
+  - {id: credential.bearer, regex: "Bearer\\s+[A-Za-z0-9._-]{8,}"}
+  - {id: credential.api_key, regex: "(?i)(api[_ -]?key|secret|access[_ -]?token)\\s*[:=]"}
+

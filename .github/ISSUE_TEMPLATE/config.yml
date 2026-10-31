@@ -1,0 +1,14 @@
+# 引导用户在提交 Issue 前先自助排查
+# 隐藏空白 Issue 入口，强制走结构化模板
+blank_issues_enabled: false
+
+contact_links:
+  - name: 📖 安装与使用问题（请先看文档）
+    url: https://github.com/romancepoet4ever/GraphGuard-Agent/blob/main/docs/installation.md
+    about: 按安装文档排查后仍有问题，再提交 Issue
+  - name: 📋 支持范围说明
+    url: https://github.com/romancepoet4ever/GraphGuard-Agent/blob/main/SUPPORT.md
+    about: 哪些问题在支持范围内、哪些不在，以及响应预期
+  - name: 🔒 报告安全漏洞
+    url: https://github.com/romancepoet4ever/GraphGuard-Agent/security/policy
+    about: 请勿公开提交，按 SECURITY.md 的渠道私下报告

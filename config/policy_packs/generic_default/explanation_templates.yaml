@@ -1,0 +1,4 @@
+templates:
+  prompt_injection: "Untrusted content at {source_node} may influence {target_node}."
+  sensitive_data_leakage: "Classified content reached the user-visible path {risk_path}."
+

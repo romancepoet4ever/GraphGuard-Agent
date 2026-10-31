@@ -1,0 +1,5 @@
+﻿component,status,reason
+-RULE,UNSUPPORTED_CURRENT_IMPLEMENTATION,GovernmentRiskEngine public API does not expose an independently switchable RULE module.
+-TAINT,UNSUPPORTED_CURRENT_IMPLEMENTATION,GovernmentRiskEngine public API does not expose an independently switchable TAINT module.
+-ANOMALY,UNSUPPORTED_CURRENT_IMPLEMENTATION,GovernmentRiskEngine public API does not expose an independently switchable ANOMALY module.
+-SEMANTIC,UNSUPPORTED_CURRENT_IMPLEMENTATION,GovernmentRiskEngine public API does not expose an independently switchable SEMANTIC module.

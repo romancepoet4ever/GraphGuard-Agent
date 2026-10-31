@@ -1,0 +1,4 @@
+high_risk_tools: [raw_db_query, read_secret, send_email, shell]
+default_action: allow
+tainted_high_risk_action: block
+

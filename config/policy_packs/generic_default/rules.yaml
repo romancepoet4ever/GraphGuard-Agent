@@ -1,0 +1,22 @@
+name: generic_default
+version: 1.0.0
+rules:
+  - id: GG-PI-001
+    name: Generic prompt injection
+    type: prompt_injection
+    severity: high
+    source_types: [user_input, external_document, knowledge_chunk]
+    sink_types: [tool_call, model_generation, user_visible_sink]
+    patterns:
+      - "ignore\\s+(all\\s+)?previous\\s+instructions?"
+      - "reveal.*(system prompt|secret|private)"
+      - "忽略.*(规则|指令|提示)"
+      - "绕过.*(检测|防护|规则)"
+      - "(输出|显示|泄露).*(系统提示|内部规则|工具参数)"
+    action: block_or_sanitize
+  - id: GG-LEAK-001
+    name: Sensitive data reaches a public sink
+    type: sensitive_data_leakage
+    severity: critical
+    action: sanitize_or_block
+

@@ -1,0 +1,49 @@
+[
+  {
+    "name": "weather_ruff",
+    "status": "PASS",
+    "command": [
+      "<PYTHON>",
+      "-m",
+      "ruff",
+      "check",
+      "."
+    ],
+    "cwd": "<WEATHER_REPO>",
+    "revision": "93b58948f2ddf2ecdf452a63232b5e47de0a7fe0",
+    "exit_code": 0,
+    "elapsed_s": 0.384098,
+    "log_path": "<REPO>\\evaluation\\results\\v3\\weather_ruff_v3.log",
+    "reason": ""
+  },
+  {
+    "name": "weather_frontend_typecheck",
+    "status": "PASS",
+    "command": [
+      "<WEATHER_REPO>\\apps\\web\\node_modules\\.bin\\tsc.CMD",
+      "--noEmit",
+      "--incremental",
+      "false"
+    ],
+    "cwd": "<WEATHER_REPO>\\apps\\web",
+    "revision": "93b58948f2ddf2ecdf452a63232b5e47de0a7fe0",
+    "exit_code": 0,
+    "elapsed_s": 7.683375,
+    "log_path": "<REPO>\\evaluation\\results\\v3\\weather_frontend_typecheck_v3.log",
+    "reason": ""
+  },
+  {
+    "name": "weather_frontend_build",
+    "status": "PASS",
+    "command": [
+      "<WEATHER_REPO>\\apps\\web\\node_modules\\.bin\\next.CMD",
+      "build"
+    ],
+    "cwd": "<WEATHER_REPO>\\apps\\web",
+    "revision": "93b58948f2ddf2ecdf452a63232b5e47de0a7fe0",
+    "exit_code": 0,
+    "elapsed_s": 78.705042,
+    "log_path": "<REPO>\\evaluation\\results\\v3\\weather_frontend_build_v3.log",
+    "reason": ""
+  }
+]
