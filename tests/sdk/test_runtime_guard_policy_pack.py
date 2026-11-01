@@ -52,7 +52,7 @@ def test_evidence_forwarding_request_is_detected_as_prompt_injection(tmp_path) -
 def test_personal_information_input_is_alerted_without_control_flow_taint(tmp_path) -> None:
     client = GraphGuardClient(
         project="runtime-policy-test",
-        policy_pack="government_agent",
+        policy_pack="generic_default",
         output_path=str(tmp_path),
     )
     client.start_trace(trace_id="pii-input")
@@ -60,7 +60,7 @@ def test_personal_information_input_is_alerted_without_control_flow_taint(tmp_pa
     decision = GraphGuardRuntime(client).check_input("你知道15114501479@163.com这个邮箱吗")
 
     assert decision.risk_type == "personal_information_leakage"
-    assert decision.matched_rules == ["GOV-PII-001"]
+    assert decision.matched_rules == ["GG-PII-001"]
     node = client.trace.nodes[0]
     assert "personal_information" in node.security_tags
     assert node.is_source is False

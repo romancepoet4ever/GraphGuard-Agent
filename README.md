@@ -43,7 +43,7 @@ POST /api/v1/otel/analyze
 以下每条都可在本仓库内验证：
 
 1. **旁路接入，不接管编排**：通过 SDK / Callback / Trace 上传接入，业务 Agent 的调度与模型选择不受影响（验证：`examples/` 中的接入示例可独立运行）。
-2. **四类检测同图协同**：规则、污点传播、图异动、节点语义嵌入在同一张安全执行图上融合打分（验证：`src/detection/` 四个模块 + `data/demo_traces/` 8 个样本）。
+2. **四类检测同图协同**：规则、污点传播、图异动、节点语义嵌入在同一张安全执行图上融合打分（验证：`src/detection/` 四个模块 + `data/demo_traces/` 10 个样本）。
 3. **运行时四阶段防护**：`check_input` / `check_tool_call` / `check_tool_result` / `check_output`，支持 `observe` 与 `enforce` 两种模式（验证：`sdk/python/graphguard/runtime_guard.py` 及测试用例）。
 4. **Policy Pack 可插拔**：规则、数据分级与处置动作由 YAML 描述，默认使用 `generic_default`（验证：`config/policy_packs/`）。
 5. **风险可解释、可导出**：每次告警可回溯到具体节点、边与命中规则，并可导出 Markdown / PDF 报告（验证：`/api/v1/reports/{trace_id}` 与 `src/utils/report_exporter.py`）。
@@ -285,7 +285,7 @@ GraphGuard-Agent/
 
 - **中文提示注入覆盖弱于英文**：规则与语义检测对英文注入的识别率明显更高。
 - **工具越权只告警不阻断**：该类风险统一由通用规则 `AGS-GENERIC-001` 归类为 `review`，不自动 block。
-- **评测结果不可从本仓库完整复现**：`evaluation/` 保留了数据集与结果产物，但评测脚本（runner）不在仓库内。
+- **外部模型验收不可复现**：`evaluation/` 保留了数据集、结果产物与评测脚本（`evaluation/runners`、`evaluation/scripts`），但真实外部模型（Semantic / Qwen）的验收不在本仓库范围内。
 - **ML 检测依赖可选依赖**：`torch` / `transformers` 缺失时，节点嵌入与 GNN 模块自动降级，其余检测与防护不受影响。
 - **Streamlit 控制台有 protobuf 版本要求**：`google.protobuf` 需 >= 3.20，否则 `import streamlit` 失败。
 - **真实模型 provider 依赖外部服务**：`mock` 模式可完全离线演示；`openai` / `openrouter` 的稳定性与配额由外部服务决定。

@@ -48,7 +48,7 @@ class GovernmentRiskEngine:
     def analyze(self, graph: nx.DiGraph, *, write_audit: bool = True) -> dict[str, Any]:
         if not self._custom_rules:
             metadata = dict(graph.graph.get("metadata") or {})
-            selected = self.requested_policy_pack or metadata.get("policy_pack") or graph.graph.get("policy_pack") or "gov_default"
+            selected = self.requested_policy_pack or metadata.get("policy_pack") or graph.graph.get("policy_pack") or "generic_default"
             pack = self.policy_loader.load(str(selected))
             self.policy_pack_name = pack.name
             self.rules_path = pack.rules_path

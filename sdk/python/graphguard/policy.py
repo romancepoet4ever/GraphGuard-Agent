@@ -310,7 +310,8 @@ _PACKS: dict[str, PolicyPack] = {
     "government_agent": GovernmentAgentPolicyPack(),
     "government_weather": GovernmentWeatherPolicyPack(),
 }
-_ALIASES = {"default": "generic_default", "gov_default": "government_agent"}
+_ALIASES = {"default": "generic_default", "gov_default": "generic_default",
+            "government_agent": "generic_default", "government_weather": "generic_default"}
 
 
 def normalize_policy_pack_name(name: str | None) -> str:

@@ -7,7 +7,8 @@ from typing import Any
 import yaml
 
 
-ALIASES = {"default": "generic_default", "gov_default": "government_agent"}
+ALIASES = {"default": "generic_default", "gov_default": "generic_default",
+           "government_agent": "generic_default", "government_weather": "generic_default"}
 
 
 @dataclass(frozen=True)

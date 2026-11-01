@@ -17,9 +17,9 @@ def _referee_trace() -> nx.DiGraph:
     return graph
 
 
-def test_gov_default_alias_maps_to_government_agent() -> None:
-    assert PolicyPackLoader.normalize("gov_default") == "government_agent"
-    assert get_policy_pack("gov_default").name == "government_agent"
+def test_gov_default_alias_maps_to_generic_default() -> None:
+    assert PolicyPackLoader.normalize("gov_default") == "generic_default"
+    assert get_policy_pack("gov_default").name == "generic_default"
 
 
 def test_unknown_policy_pack_has_clear_error() -> None:

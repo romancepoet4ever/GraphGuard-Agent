@@ -24,7 +24,7 @@ class GraphGuardClient:
         project: str,
         scenario: str = "default",
         output_path: str = "./security_traces",
-        policy_pack: str = "gov_default",
+        policy_pack: str = "generic_default",
         api_url: str | None = None,
         api_key: str | None = None,
         *,
