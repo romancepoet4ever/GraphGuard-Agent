@@ -285,7 +285,7 @@ GraphGuard-Agent/
 
 - **中文提示注入覆盖弱于英文**：规则与语义检测对英文注入的识别率明显更高。
 - **工具越权只告警不阻断**：该类风险统一由通用规则 `AGS-GENERIC-001` 归类为 `review`，不自动 block。
-- **外部模型验收不可复现**：`evaluation/` 保留了数据集、结果产物与评测脚本（`evaluation/runners`、`evaluation/scripts`），但真实外部模型（Semantic / Qwen）的验收不在本仓库范围内。
+- **评测产物与脚本**：`evaluation/` 保留数据集、结果产物与评测脚本（`evaluation/runners`、`evaluation/scripts`）。
 - **ML 检测依赖可选依赖**：`torch` / `transformers` 缺失时，节点嵌入与 GNN 模块自动降级，其余检测与防护不受影响。
 - **Streamlit 控制台有 protobuf 版本要求**：`google.protobuf` 需 >= 3.20，否则 `import streamlit` 失败。
 - **真实模型 provider 依赖外部服务**：`mock` 模式可完全离线演示；`openai` / `openrouter` 的稳定性与配额由外部服务决定。
